@@ -1,31 +1,30 @@
-"""Copy the entry image to the grader output directory.
+"""Copy the finished front-page image into the grading output folder.
 
-Reads entry.png from this repository (the directory holding this file)
-and writes it byte-for-byte to MAKEFUN_OUTPUT_DIR/entry.png.
-Standard library only; no network.
+The entry artwork lives beside this script as entry.png. This program
+places those exact bytes at MAKEFUN_OUTPUT_DIR/entry.png so the judge
+sees the same picture on every run, with no drawing or network involved.
 """
 
-import os
-import shutil
-import sys
+from os import environ
+from pathlib import Path
 
 
-def main() -> int:
-    here = os.path.dirname(os.path.abspath(__file__))
-    source = os.path.join(here, "entry.png")
-    if not os.path.isfile(source):
-        print(f"entry image not found: {source}", file=sys.stderr)
-        return 1
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
-    os.makedirs(out_dir, exist_ok=True)
-    target = os.path.join(out_dir, "entry.png")
-    shutil.copyfile(source, target)
-    if os.path.getsize(target) != os.path.getsize(source):
-        print("copied image size mismatch", file=sys.stderr)
-        return 1
-    print(f"wrote {target} ({os.path.getsize(target)} bytes)")
-    return 0
+def output_folder() -> Path:
+    raw = environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    folder = Path(raw)
+    folder.mkdir(parents=True, exist_ok=True)
+    return folder
+
+
+def main() -> None:
+    here = Path(__file__).resolve().parent
+    picture = here / "entry.png"
+    if not picture.is_file():
+        raise FileNotFoundError(f"entry artwork missing next to this script: {picture}")
+    target = output_folder() / "entry.png"
+    payload = picture.read_bytes()
+    target.write_bytes(payload)
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
