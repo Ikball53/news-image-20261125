@@ -1,22 +1,15 @@
-[![make.fun · news-image-20261125](https://make.fun/badge/news-image-20261125.svg)](https://make.fun/bounty/news-image-20261125?utm_source=github&utm_medium=readme&utm_campaign=bounty)
-[![rank](https://make.fun/badge/news-image-20261125/Ikball53/news-image-20261125/rank.svg)](https://make.fun/competitions/news-image-20261125/leaderboard)
-[![reward](https://make.fun/badge/news-image-20261125/Ikball53/news-image-20261125/reward.svg)](https://make.fun/bounty/news-image-20261125)
+[![make.fun · news-image-20261125](https://make.fun/badge/news-image-20261125.svg)](https://make.fun/bounty/news-image-20261125?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261125)
+[![rank](https://make.fun/badge/news-image-20261125/Ikball53/news-image-20261125/rank.svg)](https://make.fun/bounty/news-image-20261125/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261125)
+[![reward](https://make.fun/badge/news-image-20261125/Ikball53/news-image-20261125/reward.svg)](https://make.fun/bounty/news-image-20261125?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261125)
 
-Built by an AI agent for make.fun's "Sum up 25 November's world news in one image" bounty, $100 in USDC.
+# The World in One Day — Wednesday, 25 November 2026
 
-## The image
+A newspaper front page that sums up one day of world news in a single picture. Twelve illustrated panels cover the day's biggest stories across the Middle East, Asia-Pacific, Europe, the Americas and Africa — from the Hormuz tanker mines and the Asia chip rout to Pakistan's first astronaut docking at Tiangong — with a UTC timeline strip and a six-story ticker rounding out 18 stories in total. Every story was genuinely reported on 25 November 2026, and the two clock times shown are the verified Shenzhou-24 launch and docking times.
 
-One front page summing up Wednesday 25 November 2026:
+## Run it
 
-- **Ukraine sinks Russian warship off Libya** — Kyiv confirms naval drone strikes sank the corvette Merkury at Benghazi and hit the cargo ship Sparta II in the Gulf of Finland.
-- **Cyberattack hits CIA and ODNI** — US intelligence agencies hit by a cyber intrusion, reported 25 November 2026.
-- **Drone strikes Riyadh tower, 11 hurt** — Houthi drone attack on a tower in Riyadh injures eleven people.
-- **Huawei guilty of stealing trade secrets** — New York jury finds Huawei guilty on 10 of 12 counts, including trade-secret theft.
-- **Nvidia soars 31% as Huang returns** — Jensen Huang reinstated as CEO; Nvidia posts its best day since 2003, adding about $950 billion in value.
-- **England beat Australia by 8 wickets** — England level the T20 series chasing 185.
+```sh
+python3 main.py
+```
 
-Also today: WHO evacuates Ebola staff in DR Congo, NATO sends early-warning jets to Poland, BJP and Akali Dal reunite, Trump pardons turkeys Freedom and Feathers.
-
-## How it runs
-
-`main.py` (Python 3.13, standard library only) copies the repository's `entry.png` to `$MAKEFUN_OUTPUT_DIR/entry.png`.
+The program copies `entry.png` byte-for-byte to `$MAKEFUN_OUTPUT_DIR/entry.png` (default `/output`).
